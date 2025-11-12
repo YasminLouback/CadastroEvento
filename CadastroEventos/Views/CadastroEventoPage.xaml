@@ -1,0 +1,48 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CadastroEventos.ViewModels"
+             x:Class="CadastroEventos.CadastroEventoPage"
+             Title="Cadastro de Evento"
+             BackgroundColor="#FFF0F5">
+
+    <ContentPage.BindingContext>
+        <viewModels:CadastroEventoViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+            <Label Text="Nome do Evento:" 
+                   FontAttributes="Bold" 
+                   FontSize="20" 
+                   TextColor="#000000"/>
+
+            <Entry Text="{Binding Evento.Nome}" 
+                   Placeholder="Digite o nome do evento" 
+                   BackgroundColor="#FFF0F5"
+                   TextColor="#000000"
+                   FontSize="16"/>
+
+            <Label Text="📅 Data de Início:" FontAttributes="Bold" FontSize="18" TextColor="Goldenrod"/>
+            <DatePicker Date="{Binding Evento.DataInicio}" TextColor="Black"/>
+
+            <Label Text="📅 Data de Término:" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+            <DatePicker Date="{Binding Evento.DataFim}" TextColor="Black"/>
+
+            <Label Text="👥 Número de Participantes:" FontAttributes="Bold" FontSize="18" TextColor="Goldenrod"/>
+            <Entry Keyboard="Numeric" Text="{Binding Evento.NumeroParticipantes}" TextColor="Black"/>
+
+            <Label Text="📍 Local do Evento:" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+            <Entry Text="{Binding Evento.Local}" Placeholder="Local do evento" TextColor="Black"/>
+
+            <Label Text="💰 Custo por Participante:" FontAttributes="Bold" FontSize="18" TextColor="Goldenrod"/>
+            <Entry Keyboard="Numeric" Text="{Binding Evento.CustoPorParticipante}" TextColor="Black"/>
+
+            <Button Text="Cadastrar" 
+                    Command="{Binding CadastrarCommand}" 
+                    BackgroundColor="Black" 
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    CornerRadius="15"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
